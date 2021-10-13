@@ -9,5 +9,37 @@
     <section>
         <ul id="works"></ul>
     </section>
+    <div id="modal">
+        <img src="#" alt="artwork">
+        <button id="close">&times;</button>
+        <h3>Artwork</h3>
+        <div id="info">
+            <p>by Artist</p>
+            <p>medium</p>
+        </div>
+        <div id="comments">
+            <h4>Comments (num)</h4>
+            <ul>
+                <li>
+                    <p>Comment</p>
+                </li>
+                <li>
+                    <p>Comment</p>
+                </li>
+                <li>
+                    <p>Comment</p>
+                </li>
+            </ul>
+        </div>
+        <div id="addComment">
+            <h4>Add a comment</h4>
+            <form action="post">
+                <input type="text" id="user" name="user" placeholder="Your name">
+                <input type="text" id="comment" name="comment" placeholder="Your insights">
+                <button type="submit" id="addButton">comment</button>
+            </form>
+        </div>
+    </div>
+    <div id="overlay"></div>
 </body>
 </html>

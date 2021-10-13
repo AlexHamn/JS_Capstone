@@ -55,3 +55,9 @@ async function callCats() {
 }
 
 callCats();
+
+const modal = document.getElementById('modal');
+const overlay = document.getElementById('overlay');
+const closeButton = document.getElementById('close');
+closeButton.setAttribute('onclick', 'modal.remove(), overlay.remove()');
+// closeButton.setAttribute('onclick', 'overlay.remove()');
