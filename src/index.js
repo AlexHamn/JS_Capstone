@@ -5,8 +5,9 @@ function modal(item, iiif, imageId, id) {
   const popUp = document.createElement('div');
   popUp.id = 'overlay';
   body.append(popUp);
-  popUp.innerHTML = `<div id=${id} class="modal">
-        <img src="#" alt="artwork">
+  popUp.innerHTML = `
+      <div id=${id} class="modal">
+        <img src="${iiif}/${imageId}/full/843,/0/default.jpg" alt="artwork">
         <button id="close" onclick ="this.remove(), overlay.remove()">&times;</button>
         <h3>Artwork</h3>
         <div id="info">
@@ -60,7 +61,7 @@ function appendItem(item, iiif, imageId, id) {
   button.class = 'commentButton';
   button.textContent = 'Comments';
   list.append(li);
-  button.addEventListener('click', () => { modal(id); });
+  button.addEventListener('click', () => { modal(item, iiif, imageId, id); });
 }
 
 async function displayItem(apiLink) {
