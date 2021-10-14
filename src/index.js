@@ -39,18 +39,51 @@ function modal(item, iiif, imageId, id) {
     </div>`;
 }
 
-function appendItem(item, iiif, imageId, id) {
+async function getLikes() {
+  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'AIC-User-Agent': 'js capstone project (lgamino@centro.edu.mx)',
+    },
+  });
+
+  const data = await response.json();
+
+  return data;
+}
+
+function findLikes(data, id) {
+  let result = data.find((e) => Number(e.item_id) === id);
+  if (result === undefined) {
+    result = { item_id: id, likes: 0 };
+  }
+  // console.log(result.likes);
+  return result.likes;
+}
+
+async function run(id) {
+  const data = await getLikes();
+  return findLikes(data, id);
+}
+
+async function appendItem(item, iiif, imageId, id) {
   const list = document.getElementById('works');
   const li = document.createElement('li');
   const div = document.createElement('div');
   const img = document.createElement('img');
   const button = document.createElement('button');
+  const likes = await run(id);
   li.id = id;
   li.append(div);
   div.innerHTML = `
     <img src="${iiif}/${imageId}/full/843,/0/default.jpg" alt="${item.data.title}">
     <h4>${item.data.title}</h4>
-    <p>by ${item.data.artist_title}</p><p class="medium">${item.data.medium_display}</p>`;
+    <p>by ${item.data.artist_title}</p>
+    <p class="medium">${item.data.medium_display}</p>
+    <p>likes: ${likes}`;
   div.append(button);
   img.src = `${iiif}/${imageId}/full/843,/0/default.jpg`;
   img.alt = `${item.data.title}`;
@@ -89,7 +122,7 @@ async function call() {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'AIC-User-Agent': 'js capstone project (lgamino@centro.edu.mx)',
+      'AIC-User-Agent': 'Microverse student project (lgamino@centro.edu.mx)',
     },
   });
 
@@ -103,49 +136,25 @@ async function call() {
   });
 }
 
-async function postLike(id) {
-  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
-  let itemsArray = [];
+// async function postLike(id) {
+//   const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'AIC-User-Agent': 'js capstone project (lgamino@centro.edu.mx)',
-    },
-    body: JSON.stringify({
-      item_id: `${id}`,
-    }),
-  });
+//   const response = await fetch(url, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'AIC-User-Agent': 'js capstone project (lgamino@centro.edu.mx)',
+//     },
+//     body: JSON.stringify({
+//       item_id: `${id}`,
+//     }),
+//   });
 
-  const data = await response.text();
-  const result = await data.data;
-
-  console.log(data);
-}
-
-async function getLikes(id) {
-  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
-  let itemsArray = [];
-
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'AIC-User-Agent': 'js capstone project (lgamino@centro.edu.mx)',
-    },
-  });
-
-  const data = await response.json();
-  const result = await data.find((e) => e.item_id == id);
-
-  console.log(data);
-  console.log(result);
-}
+//   const data = await response.text();
+//   const result = await data.data;
+// }
 
 call();
-
 // postLike(24306);
-getLikes(24306);
 
-//key: YJy8zKJ52VhnTL91oel8
+// key: YJy8zKJ52VhnTL91oel8
