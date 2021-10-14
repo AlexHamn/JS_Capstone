@@ -82,10 +82,10 @@ async function displayItem(apiLink) {
 }
 
 async function call() {
-  const cats = 'https://api.artic.edu/api/v1/artworks/search?q=modern&size=12';
+  const url = 'https://api.artic.edu/api/v1/artworks/search?q=modern&size=12';
   let itemsArray = [];
 
-  const response = await fetch(cats, {
+  const response = await fetch(url, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -94,7 +94,6 @@ async function call() {
   });
 
   const data = await response.json();
-  // console.log(data)
   const result = await data.data;
 
   itemsArray = result.map((e) => e.api_link);
@@ -104,4 +103,49 @@ async function call() {
   });
 }
 
+async function postLike(id) {
+  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
+  let itemsArray = [];
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'AIC-User-Agent': 'js capstone project (lgamino@centro.edu.mx)',
+    },
+    body: JSON.stringify({
+      item_id: `${id}`,
+    }),
+  });
+
+  const data = await response.text();
+  const result = await data.data;
+
+  console.log(data);
+}
+
+async function getLikes(id) {
+  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
+  let itemsArray = [];
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'AIC-User-Agent': 'js capstone project (lgamino@centro.edu.mx)',
+    },
+  });
+
+  const data = await response.json();
+  const result = await data.find((e) => e.item_id == id);
+
+  console.log(data);
+  console.log(result);
+}
+
 call();
+
+// postLike(24306);
+getLikes(24306);
+
+//key: YJy8zKJ52VhnTL91oel8
