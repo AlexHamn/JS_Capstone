@@ -44,9 +44,6 @@ function appendItem(item, iiif, imageId, id) {
   const li = document.createElement('li');
   const div = document.createElement('div');
   const img = document.createElement('img');
-  const h4 = document.createElement('h4');
-  const p1 = document.createElement('p');
-  const p2 = document.createElement('p');
   const button = document.createElement('button');
   li.id = id;
   li.append(div);
