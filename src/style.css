@@ -15,6 +15,10 @@ ul {
   justify-content: space-around;
 }
 
+img {
+  max-height: 50vh;
+}
+
 li {
   margin: 1rem;
   min-width: 30vw;
@@ -60,4 +64,70 @@ button {
   align-self: center;
   justify-self: flex-end;
   margin: 0.5rem 0;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: unset;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: white;
+  border: 3px solid black;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 90vh;
+  overflow-y: scroll;
+}
+
+.modal img {
+  max-width: 85%;
+}
+
+#close {
+  border: unset;
+  outline: unset;
+  background: unset;
+  box-shadow: unset;
+  font-size: 4rem;
+  align-self: baseline;
+  justify-self: flex-end;
+  height: 4rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+}
+
+#comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#addComment {
+  width: min-content;
+  text-align: center;
+}
+
+input {
+  border: 3px solid black;
+  border-radius: 5%;
+  margin: 0.5rem 0;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
 }

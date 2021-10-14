@@ -2,3 +2,4 @@ node_modules/
 .stylelintrc.json
 .hintrc
 .eslintrc.json
+node_modules
