@@ -93,12 +93,23 @@ button {
   overflow-y: scroll;
 }
 
+.modal img {
+  max-width: 85%;
+}
+
 #close {
   border: unset;
   outline: unset;
   background: unset;
   box-shadow: unset;
   font-size: 4rem;
+  align-self: baseline;
+  justify-self: flex-end;
+  height: 4rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
 }
 
 #comments {
