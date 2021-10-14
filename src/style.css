@@ -38,7 +38,6 @@ li div:first-of-type {
   text-align: center;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 }
 
