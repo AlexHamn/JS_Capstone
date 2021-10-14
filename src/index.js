@@ -73,9 +73,15 @@ async function appendItem(item, iiif, imageId, id) {
   const list = document.getElementById('works');
   const li = document.createElement('li');
   const div = document.createElement('div');
+  const div1 = document.createElement('div');
   const img = document.createElement('img');
   const button = document.createElement('button');
   const likes = await run(id);
+  const like = document.createElement('span');
+  div1.id = 'buttons';
+  like.classList.add('material-icons');
+  like.id = id;
+  like.textContent = 'favorite_border';
   li.id = id;
   li.append(div);
   div.innerHTML = `
@@ -83,8 +89,9 @@ async function appendItem(item, iiif, imageId, id) {
     <h4>${item.data.title}</h4>
     <p>by ${item.data.artist_title}</p>
     <p class="medium">${item.data.medium_display}</p>
-    <p>likes: ${likes}`;
-  div.append(button);
+    <p>likes: </p><p>${likes}</p>`;
+  div.append(div1);
+  div1.append(button, like);
   img.src = `${iiif}/${imageId}/full/843,/0/default.jpg`;
   img.alt = `${item.data.title}`;
   button.id = id;
@@ -92,6 +99,10 @@ async function appendItem(item, iiif, imageId, id) {
   button.textContent = 'Comments';
   list.append(li);
   button.addEventListener('click', () => { modal(item, iiif, imageId, id); });
+  like.addEventListener('click', () => {
+    postLike(id);
+    increaseLikes(id);
+  });
 }
 
 async function displayItem(apiLink) {
@@ -136,23 +147,30 @@ async function call() {
   });
 }
 
-// async function postLike(id) {
-//   const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
+async function postLike(id) {
+  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
 
-//   const response = await fetch(url, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'AIC-User-Agent': 'js capstone project (lgamino@centro.edu.mx)',
-//     },
-//     body: JSON.stringify({
-//       item_id: `${id}`,
-//     }),
-//   });
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'AIC-User-Agent': 'js capstone project (lgamino@centro.edu.mx)',
+    },
+    body: JSON.stringify({
+      item_id: `${id}`,
+    }),
+  });
+  console.log(response);
+  // const data = await response.text();
+  // const result = await data.data;
+}
 
-//   const data = await response.text();
-//   const result = await data.data;
-// }
+function increaseLikes(id) {
+  const item = document.getElementById(`${id}`).children[0].children[5];
+  let likes = Number(item.innerHTML);
+  likes += 1;
+  item.innerHTML = likes;
+}
 
 call();
 // postLike(24306);

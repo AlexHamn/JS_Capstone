@@ -66,6 +66,12 @@ button {
   margin: 0.5rem 0;
 }
 
+#buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 #overlay {
   position: fixed;
   top: 0;
