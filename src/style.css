@@ -34,6 +34,14 @@ li img {
   text-align: center;
 }
 
+li div:first-of-type {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 h4 {
   max-width: 300px;
   margin: 1rem 0 0.5rem 0;
@@ -66,10 +74,20 @@ button {
   margin: 0.5rem 0;
 }
 
+#likes {
+  display: flex;
+  flex-direction: row;
+}
+
+span {
+  cursor: pointer;
+}
+
 #buttons {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 #overlay {

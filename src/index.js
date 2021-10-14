@@ -39,6 +39,31 @@ function modal(item, iiif, imageId, id) {
     </div>`;
 }
 
+async function postLike(id) {
+  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'AIC-User-Agent': 'js capstone project (lgamino@centro.edu.mx)',
+    },
+    body: JSON.stringify({
+      item_id: `${id}`,
+    }),
+  });
+  return (response);
+  // const data = await response.text();
+  // const result = await data.data;
+}
+
+function increaseLikes(id) {
+  const item = document.getElementById(`${id}`).children[0].children[4].children[1];
+  let likes = Number(item.innerHTML);
+  likes += 1;
+  item.innerHTML = likes;
+}
+
 async function getLikes() {
   const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
 
@@ -89,7 +114,10 @@ async function appendItem(item, iiif, imageId, id) {
     <h4>${item.data.title}</h4>
     <p>by ${item.data.artist_title}</p>
     <p class="medium">${item.data.medium_display}</p>
-    <p>likes: </p><p>${likes}</p>`;
+    <div id="likes">
+      <p>likes: </p>
+      <p>${likes}</p>
+    <div>`;
   div.append(div1);
   div1.append(button, like);
   img.src = `${iiif}/${imageId}/full/843,/0/default.jpg`;
@@ -145,31 +173,6 @@ async function call() {
   itemsArray.forEach((e) => {
     displayItem(e);
   });
-}
-
-async function postLike(id) {
-  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'AIC-User-Agent': 'js capstone project (lgamino@centro.edu.mx)',
-    },
-    body: JSON.stringify({
-      item_id: `${id}`,
-    }),
-  });
-  console.log(response);
-  // const data = await response.text();
-  // const result = await data.data;
-}
-
-function increaseLikes(id) {
-  const item = document.getElementById(`${id}`).children[0].children[5];
-  let likes = Number(item.innerHTML);
-  likes += 1;
-  item.innerHTML = likes;
 }
 
 call();
