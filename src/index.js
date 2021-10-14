@@ -94,6 +94,15 @@ async function run(id) {
   return findLikes(data, id);
 }
 
+function count() {
+  const total = document.getElementById('works').children.length;
+  return (`(${total})`);
+}
+
+function updateHeader(count) {
+  document.getElementById('counter').innerHTML = count;
+}
+
 async function appendItem(item, iiif, imageId, id) {
   const list = document.getElementById('works');
   const li = document.createElement('li');
@@ -131,6 +140,7 @@ async function appendItem(item, iiif, imageId, id) {
     postLike(id);
     increaseLikes(id);
   });
+  updateHeader(count());
 }
 
 async function displayItem(apiLink) {
@@ -172,6 +182,7 @@ async function call() {
 
   itemsArray.forEach((e) => {
     displayItem(e);
+    // updateHeader(count());
   });
 }
 

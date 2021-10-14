@@ -3,10 +3,39 @@
   font-family: "Comic Neue", "Courier New", Courier, monospace;
   border-radius: 1%;
   font-weight: bolder;
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  max-width: 300px;
+  margin: unset;
+  margin-top: 0.25rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header a p {
+  margin: unset;
+}
+
+header a:first-of-type * {
+  margin: 0.3rem;
 }
 
 ul {
   border: 3px solid black;
+  margin: unset;
   padding: unset;
   max-height: 90vh;
   overflow-y: scroll;
@@ -49,12 +78,6 @@ h4 {
 
 .medium {
   font-weight: 400;
-}
-
-p {
-  max-width: 300px;
-  margin: unset;
-  margin-top: 0.25rem;
 }
 
 button {
