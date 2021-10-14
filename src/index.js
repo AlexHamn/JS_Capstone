@@ -7,12 +7,12 @@ function modal(item, iiif, imageId, id) {
   body.append(popUp);
   popUp.innerHTML = `
       <div id=${id} class="modal">
-        <img src="${iiif}/${imageId}/full/843,/0/default.jpg" alt="artwork">
+        <img src="${iiif}/${imageId}/full/843,/0/default.jpg" alt="${item.data.title}">
         <button id="close" onclick ="this.remove(), overlay.remove()">&times;</button>
-        <h3>Artwork</h3>
+        <h3>${item.data.title}</h3>
         <div id="info">
-            <p>by Artist</p>
-            <p>medium</p>
+            <p>by ${item.data.artist_title}</p>
+            <p>${item.data.medium_display}</p>
         </div>
         <div id="comments">
             <h4>Comments (num)</h4>
