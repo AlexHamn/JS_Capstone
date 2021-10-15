@@ -85,7 +85,6 @@ function findLikes(data, id) {
   if (result === undefined) {
     result = { item_id: id, likes: 0 };
   }
-  // console.log(result.likes);
   return result.likes;
 }
 
@@ -94,7 +93,7 @@ async function run(id) {
   return findLikes(data, id);
 }
 
-function count() {
+export default function count() {
   const total = document.getElementById('works').children.length;
   return (`(${total})`);
 }
@@ -182,11 +181,9 @@ async function call() {
 
   itemsArray.forEach((e) => {
     displayItem(e);
-    // updateHeader(count());
   });
 }
 
 call();
-// postLike(24306);
 
 // key: YJy8zKJ52VhnTL91oel8
