@@ -1,7 +1,7 @@
 import './style.css';
 import count from './count';
 
-function modal(item, iiif, imageId, id) {
+const modal = (item, iiif, imageId, id) => {
   const { body } = document;
   const popUp = document.createElement('div');
   popUp.id = 'overlay';
@@ -38,7 +38,7 @@ function modal(item, iiif, imageId, id) {
             </form>
         </div>
     </div>`;
-}
+};
 
 async function postLike(id) {
   const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
@@ -58,12 +58,12 @@ async function postLike(id) {
   // const result = await data.data;
 }
 
-function increaseLikes(id) {
+const increaseLikes = (id) => {
   const item = document.getElementById(`${id}`).children[0].children[4].children[1];
   let likes = Number(item.innerHTML);
   likes += 1;
   item.innerHTML = likes;
-}
+};
 
 async function getLikes() {
   const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YJy8zKJ52VhnTL91oel8/likes/';
@@ -81,20 +81,20 @@ async function getLikes() {
   return data;
 }
 
-function findLikes(data, id) {
+const findLikes = (data, id) => {
   let result = data.find((e) => Number(e.item_id) === id);
   if (result === undefined) {
     result = { item_id: id, likes: 0 };
   }
   return result.likes;
-}
+};
 
 async function run(id) {
   const data = await getLikes();
   return findLikes(data, id);
 }
 
-function updateHeader(count) {
+const updateHeader = (count) => {
   document.getElementById('counter').innerHTML = count;
 }
 
