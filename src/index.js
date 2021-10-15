@@ -1,4 +1,5 @@
 import './style.css';
+import count from './count.js';
 
 function modal(item, iiif, imageId, id) {
   const { body } = document;
@@ -91,11 +92,6 @@ function findLikes(data, id) {
 async function run(id) {
   const data = await getLikes();
   return findLikes(data, id);
-}
-
-export default function count() {
-  const total = document.getElementById('works').children.length;
-  return (`(${total})`);
 }
 
 function updateHeader(count) {
