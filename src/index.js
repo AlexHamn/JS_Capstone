@@ -1,4 +1,5 @@
 import './style.css';
+import count from './count';
 
 function modal(item, iiif, imageId, id) {
   const { body } = document;
@@ -85,18 +86,12 @@ function findLikes(data, id) {
   if (result === undefined) {
     result = { item_id: id, likes: 0 };
   }
-  // console.log(result.likes);
   return result.likes;
 }
 
 async function run(id) {
   const data = await getLikes();
   return findLikes(data, id);
-}
-
-function count() {
-  const total = document.getElementById('works').children.length;
-  return (`(${total})`);
 }
 
 function updateHeader(count) {
@@ -182,11 +177,9 @@ async function call() {
 
   itemsArray.forEach((e) => {
     displayItem(e);
-    // updateHeader(count());
   });
 }
 
 call();
-// postLike(24306);
 
 // key: YJy8zKJ52VhnTL91oel8
