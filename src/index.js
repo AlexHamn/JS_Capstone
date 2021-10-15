@@ -1,5 +1,5 @@
 import './style.css';
-import count from './count.js';
+import count from './count';
 
 function modal(item, iiif, imageId, id) {
   const { body } = document;

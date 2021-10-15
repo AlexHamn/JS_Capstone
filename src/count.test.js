@@ -1,7 +1,7 @@
 /**
 * @jest-environment jsdom
 */
-import count from './count.js';
+import count from './count';
 
 beforeEach(() => {
   document.body.innerHTML = '<ul id = "works">'
