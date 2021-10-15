@@ -177,3 +177,9 @@ input {
   -webkit-appearance: none;
   -moz-appearance: textfield;
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  padding: 0.5rem;
+}
