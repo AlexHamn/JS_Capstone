@@ -96,7 +96,7 @@ async function run(id) {
 
 const updateHeader = (count) => {
   document.getElementById('counter').innerHTML = count;
-}
+};
 
 async function appendItem(item, iiif, imageId, id) {
   const list = document.getElementById('works');
