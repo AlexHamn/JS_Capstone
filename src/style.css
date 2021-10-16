@@ -1,0 +1,185 @@
+* {
+  list-style: none;
+  font-family: "Comic Neue", "Courier New", Courier, monospace;
+  border-radius: 1%;
+  font-weight: bolder;
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  max-width: 300px;
+  margin: unset;
+  margin-top: 0.25rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header a p {
+  margin: unset;
+}
+
+header a:first-of-type * {
+  margin: 0.3rem;
+}
+
+ul {
+  border: 3px solid black;
+  margin: unset;
+  padding: unset;
+  max-height: 90vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+img {
+  max-height: 50vh;
+}
+
+li {
+  margin: 1rem;
+  min-width: 30vw;
+  max-width: 45%;
+  max-height: 85vh;
+  display: flex;
+  justify-content: center;
+}
+
+li img {
+  max-height: 500px;
+  max-width: 500px;
+  text-align: center;
+}
+
+li div:first-of-type {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h4 {
+  max-width: 300px;
+  margin: 1rem 0 0.5rem 0;
+  font-size: large;
+}
+
+.medium {
+  font-weight: 400;
+}
+
+button {
+  all: unset;
+  border: 3px solid black;
+  border-radius: 5%;
+  padding: 0.2em 0.4rem;
+  box-shadow: 4px 3px black;
+  background: white;
+  cursor: pointer;
+  user-select: none;
+  width: min-content;
+  height: min-content;
+  align-self: center;
+  justify-self: flex-end;
+  margin: 0.5rem 0;
+}
+
+#likes {
+  display: flex;
+  flex-direction: row;
+}
+
+span {
+  cursor: pointer;
+}
+
+#buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: unset;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: white;
+  border: 3px solid black;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 90vh;
+  overflow-y: scroll;
+}
+
+.modal img {
+  max-width: 85%;
+}
+
+#close {
+  border: unset;
+  outline: unset;
+  background: unset;
+  box-shadow: unset;
+  font-size: 4rem;
+  align-self: baseline;
+  justify-self: flex-end;
+  height: 4rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+}
+
+#comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#addComment {
+  width: min-content;
+  text-align: center;
+}
+
+input {
+  border: 3px solid black;
+  border-radius: 5%;
+  margin: 0.5rem 0;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  padding: 0.5rem;
+}

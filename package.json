@@ -1,0 +1,50 @@
+{
+  "name": "javascript-capstone",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/German-Cobian/Javascript-Capstone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/German-Cobian/Javascript-Capstone/issues"
+  },
+  "homepage": "https://github.com/German-Cobian/Javascript-Capstone#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "babel-eslint": "^10.1.0",
+    "css-loader": "^6.4.0",
+    "csv-loader": "^3.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "hint": "^6.1.4",
+    "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.2.5",
+    "style-loader": "^3.3.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1",
+    "xml-loader": "^1.2.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "babel-jest": "^27.2.5",
+    "lodash": "^4.17.21"
+  }
+}
