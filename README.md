@@ -15,6 +15,10 @@ This is achieved by hitting the Art Institute of Chicago API. Also, the DOM is d
 - CSS3
 - Webpack
 
+## Live Demo
+
+[Live Demo Link](https://alexhamn.github.io/JS_Capstone/)
+
 ## Future Updates & Roadmap:
 
 - Add search functionality
